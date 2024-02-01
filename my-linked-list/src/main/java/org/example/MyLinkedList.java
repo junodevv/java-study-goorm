@@ -32,6 +32,17 @@ public class MyLinkedList<T> {
         return currentNode.getData();
     }
 
+    public void delete(int index){
+        Node<T> currentNode = Head;
+        for(int i=1; i<index-1; i++){
+            if(currentNode.getNext()==null){
+                throw new IllegalArgumentException("MyLinkedList의 크기를 초과했습니다.");
+            }
+            currentNode = currentNode.getNext();
+        }
+        currentNode.setNext(currentNode.getNext().getNext());
+    }
+
     public void printAll() {
         Node<T> currentNode = Head;
         while(true){

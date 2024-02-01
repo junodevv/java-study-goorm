@@ -13,8 +13,14 @@ public class Main {
 
         System.out.println("----- get test -----");
         System.out.println(myLinkedList.get(1));
+        System.out.println(myLinkedList.get(2));
         System.out.println(myLinkedList.get(3));
 //        System.out.println(myLinkedList.get(4));
 
+        System.out.println("----- delete test -----");
+        myLinkedList.delete(2);
+        myLinkedList.printAll();
+//        myLinkedList.delete(4);
+//        myLinkedList.printAll();
     }
 }
