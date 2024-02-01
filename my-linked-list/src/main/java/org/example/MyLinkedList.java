@@ -1,7 +1,7 @@
 package org.example;
 
 public class MyLinkedList<T> {
-    private Node Head;
+    private Node<T> Head;
 
     public MyLinkedList() {
     }
@@ -14,24 +14,26 @@ public class MyLinkedList<T> {
             return;
         }
 
-        Node currentNode = Head;
+        Node<T> currentNode = Head;
         while (currentNode.getNext() != null) {
             currentNode = currentNode.getNext();
         }
         currentNode.setNext(newNode);
     }
 
+    public T get(int index){
+        Node<T> currentNode = Head;
+        for(int i=1; i<index; i++){
+            if(currentNode.getNext()==null){
+                throw new IllegalArgumentException("MyLinkedList의 크기를 초과했습니다.");
+            }
+            currentNode = currentNode.getNext();
+        }
+        return currentNode.getData();
+    }
+
     public void printAll() {
-//        if(Head == null){
-//            System.out.println("빈 리스트입니다.");
-//            return;
-//        }
-//        Node currentNode = Head;
-//        do{
-//            System.out.println(currentNode.getData());
-//            currentNode = currentNode.getNext();
-//        }while(currentNode.getNext() != null);
-        Node currentNode = Head;
+        Node<T> currentNode = Head;
         while(true){
             if(currentNode == null) break;
             System.out.println(currentNode.getData());
