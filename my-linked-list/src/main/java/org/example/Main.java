@@ -2,8 +2,12 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        Node<Integer> node = new Node<>(1);
+        MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();
 
+        myLinkedList.add(1);
+        myLinkedList.add(2);
+        myLinkedList.add(3);
 
+        myLinkedList.printAll();
     }
 }
