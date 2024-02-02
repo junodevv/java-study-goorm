@@ -17,6 +17,5 @@ public class Main2 {
         myStack.printAll();
         System.out.println("pop: " + myStack.pop());
         myStack.printAll();
-
     }
 }

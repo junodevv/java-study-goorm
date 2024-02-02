@@ -3,8 +3,9 @@ package org.example;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class MyLinkedList<T> implements Iterable<T>{
+public class MyLinkedList<T> implements Iterable<T> {
     private Node<T> Head;
+    private int size;
 
     public MyLinkedList() {
     }
@@ -22,41 +23,40 @@ public class MyLinkedList<T> implements Iterable<T>{
             currentNode = currentNode.getNext();
         }
         currentNode.setNext(newNode);
+        size++;
     }
-
-    public T get(int index){
+    // 리펙토링 중
+    public T get(int index) {
+        if (index < 1) {
+            throw new IllegalArgumentException("MyLinkedList가 비어있습니다.");
+        }
+        if (index > size) {
+            throw new IllegalArgumentException("MyLinkedList의 크기를 초과했습니다.");
+        }
         Node<T> currentNode = Head;
         for(int i=1; i<index; i++){
-            if(currentNode.getNext()==null){
-                throw new IllegalArgumentException("MyLinkedList의 크기를 초과했습니다.");
-            }
             currentNode = currentNode.getNext();
         }
         return currentNode.getData();
     }
 
-    public void delete(int index){
+    public void delete(int index) {
         Node<T> currentNode = Head;
-        for(int i=1; i<index-1; i++){
-            if(currentNode.getNext()==null){
+        if (currentNode == null) {
+            System.out.println("빈 스택");
+        }
+
+        for (int i = 1; i < index - 1; i++) {
+            if (currentNode.getNext() == null) {
                 throw new IllegalArgumentException("MyLinkedList의 크기를 초과했습니다.");
             }
             currentNode = currentNode.getNext();
-        }
-        if(currentNode.getNext().getNext() == null){
-
         }
         currentNode.setNext(currentNode.getNext().getNext());
     }
 
     public void printAll() {
-//        Node<T> currentNode = Head;
-//        while(true){
-//            if(currentNode == null) break;
-//            System.out.println(currentNode.getData());
-//            currentNode = currentNode.getNext();
-//        }
-        for(T t : this){
+        for (T t : this) {
             System.out.println(t);
         }
     }
@@ -74,7 +74,7 @@ public class MyLinkedList<T> implements Iterable<T>{
 
             @Override
             public T next() {
-                if(!hasNext()){
+                if (!hasNext()) {
                     throw new NoSuchElementException();
                 }
                 T data = currentNode.getData();
