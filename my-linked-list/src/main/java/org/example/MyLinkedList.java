@@ -43,15 +43,21 @@ public class MyLinkedList<T> implements Iterable<T>{
             }
             currentNode = currentNode.getNext();
         }
+        if(currentNode.getNext().getNext() == null){
+
+        }
         currentNode.setNext(currentNode.getNext().getNext());
     }
 
     public void printAll() {
-        Node<T> currentNode = Head;
-        while(true){
-            if(currentNode == null) break;
-            System.out.println(currentNode.getData());
-            currentNode = currentNode.getNext();
+//        Node<T> currentNode = Head;
+//        while(true){
+//            if(currentNode == null) break;
+//            System.out.println(currentNode.getData());
+//            currentNode = currentNode.getNext();
+//        }
+        for(T t : this){
+            System.out.println(t);
         }
     }
 
