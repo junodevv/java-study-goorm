@@ -2,8 +2,6 @@ package org.example;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import java.util.Spliterator;
-import java.util.function.Consumer;
 
 public class MyLinkedList<T> implements Iterable<T>{
     private Node<T> Head;

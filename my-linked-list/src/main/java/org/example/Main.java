@@ -18,7 +18,7 @@ public class Main {
 //        System.out.println(myLinkedList.get(4));
 
         System.out.println("----- delete test -----");
-        myLinkedList.delete(2);
+        myLinkedList.delete(1);
         myLinkedList.printAll();
 //        myLinkedList.delete(4);
 //        myLinkedList.printAll();

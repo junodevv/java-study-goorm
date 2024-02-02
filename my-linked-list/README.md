@@ -9,5 +9,7 @@
 - [x] data의 타입은 LinkedList를 생성할때 정할 수 있도록 **제네릭**으로 구현한다.
 
 하위과제
-- [ ] Interator interface 를 implements 한 후 구현하여 for-each로 순회가능하도록 한다.
+- [x] Interator interface 를 implements 한 후 구현하여 for-each로 순회가능하도록 한다.
 - [ ] MyLinkedList를 이용해 Queue와 Stack을 구현해본다.
+  - [ ] MyStack 구현
+  - [ ] MyQueue 구현
