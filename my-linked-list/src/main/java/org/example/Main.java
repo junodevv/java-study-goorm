@@ -22,5 +22,13 @@ public class Main {
         myLinkedList.printAll();
 //        myLinkedList.delete(4);
 //        myLinkedList.printAll();
+
+        System.out.println("----- Iterator test -----");
+        myLinkedList.add("test1");
+        myLinkedList.add("test2");
+        myLinkedList.add("test3");
+        for(String s : myLinkedList){
+            System.out.println(s);
+        }
     }
 }

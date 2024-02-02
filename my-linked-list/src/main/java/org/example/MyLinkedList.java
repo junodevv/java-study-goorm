@@ -1,6 +1,11 @@
 package org.example;
 
-public class MyLinkedList<T> {
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.Spliterator;
+import java.util.function.Consumer;
+
+public class MyLinkedList<T> implements Iterable<T>{
     private Node<T> Head;
 
     public MyLinkedList() {
@@ -52,4 +57,26 @@ public class MyLinkedList<T> {
         }
     }
 
+    @Override
+    public Iterator<T> iterator() {
+        return new Iterator<T>() {
+
+            private Node<T> currentNode = Head;
+
+            @Override
+            public boolean hasNext() {
+                return currentNode != null;
+            }
+
+            @Override
+            public T next() {
+                if(!hasNext()){
+                    throw new NoSuchElementException();
+                }
+                T data = currentNode.getData();
+                currentNode = currentNode.getNext();
+                return data;
+            }
+        };
+    }
 }
