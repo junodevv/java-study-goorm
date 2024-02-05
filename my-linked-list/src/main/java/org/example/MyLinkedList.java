@@ -29,12 +29,7 @@ public class MyLinkedList<T> implements Iterable<T> {
     }
 
     public T get(int index) {
-        if (size == 0) {
-            throw new IllegalArgumentException("MyLinkedList가 비어있습니다.");
-        }
-        if (index < 1 || index > size) {
-            throw new IllegalArgumentException("MyLinkedList의 크기에 맞지 않는 index입니다.");
-        }
+        verifyIndex(index);
         Node<T> currentNode = Head;
         for (int i = 1; i < index; i++) {
             currentNode = currentNode.getNext();
@@ -43,12 +38,7 @@ public class MyLinkedList<T> implements Iterable<T> {
     }
 
     public void delete(int index) {
-        if (size == 0) {
-            throw new IllegalArgumentException("MyLinkedList가 비어있습니다.");
-        }
-        if (index < 1 || index > size) {
-            throw new IllegalArgumentException("MyLinkedList의 크기에 맞지 않는 index입니다.");
-        }
+        verifyIndex(index);
         Node<T> currentNode = Head;
         for (int i = 1; i < index - 1; i++) {
             currentNode = currentNode.getNext();
@@ -88,5 +78,23 @@ public class MyLinkedList<T> implements Iterable<T> {
                 return data;
             }
         };
+    }
+
+    public Node<T> getNode(int index) {
+        verifyIndex(index);
+        Node<T> currentNode = Head;
+        for (int i = 1; i < index; i++) {
+            currentNode = currentNode.getNext();
+        }
+        return currentNode;
+    }
+
+    private void verifyIndex(int index) {
+        if (size == 0) {
+            throw new IllegalArgumentException("MyLinkedList가 비어있습니다.");
+        }
+        if (index < 1 || index > size) {
+            throw new IllegalArgumentException("MyLinkedList의 크기에 맞지 않는 index입니다.");
+        }
     }
 }
