@@ -8,6 +8,7 @@ public class MyLinkedList<T> implements Iterable<T> {
     private int size;
 
     public MyLinkedList() {
+        size = 0;
     }
 
     public void add(T data) {
@@ -15,6 +16,7 @@ public class MyLinkedList<T> implements Iterable<T> {
 
         if (Head == null) {
             Head = newNode;
+            size++;
             return;
         }
 
@@ -25,31 +27,30 @@ public class MyLinkedList<T> implements Iterable<T> {
         currentNode.setNext(newNode);
         size++;
     }
-    // 리펙토링 중
+
     public T get(int index) {
-        if (index < 1) {
+        if (size == 0) {
             throw new IllegalArgumentException("MyLinkedList가 비어있습니다.");
         }
-        if (index > size) {
-            throw new IllegalArgumentException("MyLinkedList의 크기를 초과했습니다.");
+        if (index < 1 || index > size) {
+            throw new IllegalArgumentException("MyLinkedList의 크기에 맞지 않는 index입니다.");
         }
         Node<T> currentNode = Head;
-        for(int i=1; i<index; i++){
+        for (int i = 1; i < index; i++) {
             currentNode = currentNode.getNext();
         }
         return currentNode.getData();
     }
 
     public void delete(int index) {
-        Node<T> currentNode = Head;
-        if (currentNode == null) {
-            System.out.println("빈 스택");
+        if (size == 0) {
+            throw new IllegalArgumentException("MyLinkedList가 비어있습니다.");
         }
-
+        if (index < 1 || index > size) {
+            throw new IllegalArgumentException("MyLinkedList의 크기에 맞지 않는 index입니다.");
+        }
+        Node<T> currentNode = Head;
         for (int i = 1; i < index - 1; i++) {
-            if (currentNode.getNext() == null) {
-                throw new IllegalArgumentException("MyLinkedList의 크기를 초과했습니다.");
-            }
             currentNode = currentNode.getNext();
         }
         currentNode.setNext(currentNode.getNext().getNext());
