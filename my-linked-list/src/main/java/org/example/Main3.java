@@ -9,5 +9,11 @@ public class Main3 {
         myQueue.enqueue("삼");
 
         myQueue.printAll();
+
+        myQueue.dequeue();
+//        myQueue.dequeue();
+//        myQueue.dequeue();
+
+        myQueue.printAll();
     }
 }

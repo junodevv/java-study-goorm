@@ -6,26 +6,40 @@ public class MyQueue<T> {
     private Node<T> back;
     private int size;
 
-    public MyQueue(){
+    public MyQueue() {
         list = new MyLinkedList<T>();
-        size=0;
+        size = 0;
     }
 
-    public void enqueue(T data){
+    public void enqueue(T data) {
         list.add(data);
         size++;
-        if(front==null && back==null){
+        if (front == null && back == null) {
             front = list.getNode(size);
             back = front;
         }
         back = list.getNode(size);
     }
 
-    public void printAll(){
+    // front 원소 제거 및 반환
+    public T dequeue() {
+        T data = front.getData();
+        list.delete(size - (size-1));
+        size--;
+        if (front.equals(back)) { // 1개 있는 상황
+            front = null;
+            back = null;
+            return data;
+        }
+        front = front.getNext();
+        return data;
+    }
+
+    public void printAll() {
         list.printAll();
         System.out.println("size: " + size);
-        System.out.println("front: " + front.getData());
-        System.out.println("back: " + back.getData());
+        System.out.println("front: " + (front == null ? null : front.getData()));
+        System.out.println("back: " + (back == null ? null : back.getData()));
     }
 
 }
