@@ -21,12 +21,18 @@ public class MyStack<T> {
         }
         T popData = top;
         list.delete(size);
+        if(size<2){
+            size--;
+            top=null;
+            return popData;
+        }
         top = list.get(--size);
         return popData;
     }
     public void printAll(){
         list.printAll();
         System.out.println("top: " + top);
+        System.out.println("size: " + size);
     }
 
 }

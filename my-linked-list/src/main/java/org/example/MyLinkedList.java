@@ -53,7 +53,12 @@ public class MyLinkedList<T> implements Iterable<T> {
         for (int i = 1; i < index - 1; i++) {
             currentNode = currentNode.getNext();
         }
+        if(currentNode.getNext()==null){
+            Head=null;
+            return;
+        }
         currentNode.setNext(currentNode.getNext().getNext());
+        size--;
     }
 
     public void printAll() {
