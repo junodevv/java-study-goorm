@@ -39,14 +39,21 @@ public class MyLinkedList<T> implements Iterable<T> {
 
     public void delete(int index) {
         verifyIndex(index);
+        // Queue
+        if(index==1 && Head.getNext()!=null){
+            Head = Head.getNext();
+            return;
+        }
+
+        if(Head.getNext()==null){
+            Head=null;
+            return;
+        }
         Node<T> currentNode = Head;
         for (int i = 1; i < index - 1; i++) {
             currentNode = currentNode.getNext();
         }
-        if(currentNode.getNext()==null){
-            Head=null;
-            return;
-        }
+
         currentNode.setNext(currentNode.getNext().getNext());
         size--;
     }
