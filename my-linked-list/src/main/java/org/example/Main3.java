@@ -9,11 +9,13 @@ public class Main3 {
         myQueue.enqueue("삼");
 
         myQueue.printAll();
+        System.out.println("peek: " + myQueue.peek());
 
         myQueue.dequeue();
 //        myQueue.dequeue();
 //        myQueue.dequeue();
 
         myQueue.printAll();
+        System.out.println("peek: " + myQueue.peek());
     }
 }

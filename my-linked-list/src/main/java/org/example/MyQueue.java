@@ -34,6 +34,13 @@ public class MyQueue<T> {
         front = front.getNext();
         return data;
     }
+    // front 원소 반환
+    public T peek(){
+        if(front==null){
+            throw new IndexOutOfBoundsException("큐가 비어있습니다.");
+        }
+        return front.getData();
+    }
 
     public void printAll() {
         list.printAll();

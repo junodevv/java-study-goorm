@@ -10,6 +10,6 @@
 
 하위과제
 - [x] Interator interface 를 implements 한 후 구현하여 for-each로 순회가능하도록 한다.
-- [ ] MyLinkedList를 이용해 Queue와 Stack을 구현해본다.
+- [x] MyLinkedList를 이용해 Queue와 Stack을 구현해본다.
   - [x] MyStack 구현
-  - [ ] MyQueue 구현
+  - [x] MyQueue 구현
