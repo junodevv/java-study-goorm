@@ -1,6 +1,4 @@
-import com.petshop.Cat;
-import com.petshop.Dog;
-import com.petshop.Pet;
+package com.petshop;
 
 public class Main {
     public static void main(String[] args) {
