@@ -23,13 +23,15 @@ public class Main {
 
         // 장바구니 생성
         Cart myCart = new Cart();
-
+        //TODO: 상품을 장바구니에 추가
         myCart.addProduct(milk, 3);
         myCart.addProduct(milk, 2);
         myCart.addProduct(coffee, 1);
         myCart.addProduct(tissue, 1);
-        //TODO: 상품을 장바구니에 추가
+
         //TODO: 상품을 장바구니에서 제거
+
         //TODO: 장바구니에 현재 담긴 상품들을 출력 (상품이름, 각 상품의 갯수)
+        myCart.showItems();
     }
 }
