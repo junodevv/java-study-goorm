@@ -27,9 +27,15 @@ public class Main {
         myCart.addProduct(milk, 3);
         myCart.addProduct(milk, 2);
         myCart.addProduct(coffee, 1);
-        myCart.addProduct(tissue, 1);
+        myCart.addProduct(tissue, 2);
+
+        myCart.showItems();
 
         //TODO: 상품을 장바구니에서 제거
+        myCart.removeProduct(milk);
+//        myCart.removeProduct(milk);   // 없는 상품 삭제 예외
+//        myCart.removeProduct(milk, 6); // 빼는 갯수가 더 많은 예외
+        myCart.removeProduct(tissue, 1);
 
         //TODO: 장바구니에 현재 담긴 상품들을 출력 (상품이름, 각 상품의 갯수)
         myCart.showItems();
