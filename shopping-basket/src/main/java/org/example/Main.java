@@ -1,13 +1,16 @@
 package org.example;
 
-import java.sql.SQLOutput;
 import java.util.HashSet;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
         // 상품 목록 생성
         Set<Product> productSet = new HashSet<>();
         //TODO: 상품 클래스를 생성하여 상품목록에 넣는다.
+        productSet.add(new Product(1, "우유", 3000));
+        productSet.add(new Product(2, "커피", 4000));
+        productSet.add(new Product(3, "화장지", 5000));
 
         // 상품 목록 확인
         System.out.println("고유한 상품 목록:");
@@ -16,7 +19,7 @@ public class Main {
         }
 
         // 장바구니 생성
-        Cart myCart = new Cart();
+//        Cart myCart = new Cart();
 
         //TODO: 상품을 장바구니에 추가
         //TODO: 상품을 장바구니에서 제거
